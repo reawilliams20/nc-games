@@ -14,7 +14,6 @@
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -35,4 +34,25 @@
   to {
     transform: rotate(360deg);
   }
+}
+.nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.nav li{
+  display: inline;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.reviewCard{
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-bottom: 20px;
+  margin: 0 80px 0 80px;
+  background-color: peachpuff;
 }
