@@ -8,14 +8,20 @@ export const ReviewList = () => {
     const categoryQuery = searchParams.get('category')
 
     const [listOfReviews, setListOfReviews] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
         getReviews().then((reviews) => {
             setListOfReviews(reviews)
+            setIsLoading(false)
         })
     }, [])
-    console.log(listOfReviews)
-    return (
+
+    return isLoading ? (
+        <p> Loading... </p>
+    ) :
+    
+    (
     <section>
         <h2> Reviews </h2>
         {
