@@ -17,7 +17,13 @@ export const CommentList = ({review_id}) => {
     return isLoading ? (
         <p> Loading... </p>
     ) :
-    
+    listOfComments.length === 0 ?  (<div><p> No comments yet </p>
+    <form>
+    <input type="text"></input>
+    <input type="textarea"></input>
+<button>Add Comment</button>
+</form></div> )
+    :
     (
     <section className="commentList">
         <h3> Comments: </h3>
@@ -28,6 +34,11 @@ export const CommentList = ({review_id}) => {
                 )
             })
         }
+        <form>
+            <input type="text"></input>
+            <input type="textarea"></input>
+        <button>Add Comment</button>
+        </form>
     </section>
     )
 }
