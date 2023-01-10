@@ -26,7 +26,7 @@ export const getComments = (review_id) => {
     })
 }
 
-export const patchReview = (review_id, patchBody ) => {
+export const patchReview = (review_id, patchBody) => {
     return gamesApi.patch(`/reviews/${review_id}`, patchBody).then((res) => {
         return res.data.review
     })

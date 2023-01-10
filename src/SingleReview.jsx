@@ -6,6 +6,7 @@ import { CommentList } from "./CommentList"
 export const SingleReview = () => {
     const [review, setReview] = useState({})
     const [isLoading, setIsLoading] = useState(true)
+    const [voted, setVoted] = useState(false)
     const increaseVote = {inc_votes: 1}
     const decreaseVote = {inc_votes: -1}
     const {review_id} = useParams()
@@ -17,34 +18,23 @@ export const SingleReview = () => {
         })
     },[])
 
-    const upVote = () => {
+    const vote = (vote) => {
         setReview((review) => {
             const newReview = {...review}
-            newReview.votes += 1;
+            newReview.votes += vote;
             return newReview;
         })
         patchReview(review_id, increaseVote).catch(() => {
+            alert("sorry something went wrong, please try again later.")
             setReview((review) => {
-                const newReview = {...review}
-                newReview.votes -= 1;
-                return newReview;
-            })
+                    const newReview = {...review}
+                    newReview.votes += -(vote);
+                    return newReview;
+                })
         })
+        if (patchReview){setVoted(true)}
     }
-    const downVote = () => {
-        setReview((review) => {
-            const newReview = {...review}
-            newReview.votes -= 1;
-            return newReview;
-        })
-        patchReview(review_id, decreaseVote).catch(() => {
-            setReview((review) => {
-                const newReview = {...review}
-                newReview.votes += 1;
-                return newReview;
-            })
-        })
-    }
+
 
     return isLoading ? (
         <p> Loading... </p>
@@ -59,8 +49,8 @@ export const SingleReview = () => {
         <p> Designer: {review.designer}</p>
         <p> Category: {review.category}</p>
         <p>Votes: {review.votes}</p>
-        <button id="up" onClick = {() => upVote()}>👍</button>
-        <button id="down" onClick = {() => downVote()}>👎</button>
+        <button id="up" onClick = {() => {if (!voted){vote(1)}}}>👍</button>
+        <button id="down" onClick = {() => {if (!voted){vote(-1)}}}>👎</button>
         </div>
         <div>
         <CommentList review_id={review.review_id}/>
