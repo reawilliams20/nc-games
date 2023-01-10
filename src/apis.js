@@ -14,8 +14,8 @@ export const getCategories = () => {
     })
 }
 
-// export const getReview = (reviewId) => {
-//     return gamesApi.get(`/reviews/${reviewId}`).then((res) => {
-//         return res.data.review
-//     })
-// }
+export const getReview = (review_id) => {
+    return gamesApi.get(`/reviews/${review_id}`).then((res) => {
+        return res.data.review
+    })
+}
