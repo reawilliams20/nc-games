@@ -25,3 +25,10 @@ export const getComments = (review_id) => {
         return res.data.comments
     })
 }
+
+export const patchReview = (review_id, patchBody ) => {
+    return gamesApi.patch(`/reviews/${review_id}`, patchBody).then((res) => {
+        return res.data.review
+    })
+
+}

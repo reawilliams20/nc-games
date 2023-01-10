@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router"
-import { getReview } from "./apis"
+import { getReview, patchReview } from "./apis"
 import { CommentList } from "./CommentList"
 
 export const SingleReview = () => {
     const [review, setReview] = useState({})
     const [isLoading, setIsLoading] = useState(true)
+    const increaseVote = {inc_votes: 1}
+    const decreaseVote = {inc_votes: -1}
     const {review_id} = useParams()
 
     useEffect(()=>{
@@ -14,6 +16,35 @@ export const SingleReview = () => {
             setIsLoading(false)
         })
     },[])
+
+    const upVote = () => {
+        setReview((review) => {
+            const newReview = {...review}
+            newReview.votes += 1;
+            return newReview;
+        })
+        patchReview(review_id, increaseVote).catch(() => {
+            setReview((review) => {
+                const newReview = {...review}
+                newReview.votes -= 1;
+                return newReview;
+            })
+        })
+    }
+    const downVote = () => {
+        setReview((review) => {
+            const newReview = {...review}
+            newReview.votes -= 1;
+            return newReview;
+        })
+        patchReview(review_id, decreaseVote).catch(() => {
+            setReview((review) => {
+                const newReview = {...review}
+                newReview.votes += 1;
+                return newReview;
+            })
+        })
+    }
 
     return isLoading ? (
         <p> Loading... </p>
@@ -28,10 +59,9 @@ export const SingleReview = () => {
         <p> Designer: {review.designer}</p>
         <p> Category: {review.category}</p>
         <p>Votes: {review.votes}</p>
-        <button>👍</button>
-        <button>👎</button>
+        <button id="up" onClick = {() => upVote()}>👍</button>
+        <button id="down" onClick = {() => downVote()}>👎</button>
         </div>
-        {/* </CommentList> */}
         <div>
         <CommentList review_id={review.review_id}/>
         </div>
