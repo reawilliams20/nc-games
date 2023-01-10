@@ -8,6 +8,12 @@ export const getReviews = () => {
     })
 }
 
+export const getCategories = () => {
+    return gamesApi.get('/categories').then((res) => {
+        return res.data.categories
+    })
+}
+
 // export const getReview = (reviewId) => {
 //     return gamesApi.get(`/reviews/${reviewId}`).then((res) => {
 //         return res.data.review
