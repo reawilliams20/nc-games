@@ -72,3 +72,17 @@
   padding-bottom: 20px;
   display: block;
 }
+
+.singleReviewCard button {
+  font-size: 18px;
+  padding: 10px;
+  margin-left: 12px;
+}
+
+#up:hover {
+  background-color: rgb(93, 209, 145) ;
+}
+
+#down:hover {
+  background-color: rgb(248, 94, 94)
+}
