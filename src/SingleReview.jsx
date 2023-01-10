@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router"
 import { getReview } from "./apis"
+import { CommentList } from "./CommentList"
 
 export const SingleReview = () => {
     const [review, setReview] = useState({})
@@ -31,5 +32,8 @@ export const SingleReview = () => {
         <button>👎</button>
         </div>
         {/* </CommentList> */}
+        <div>
+        <CommentList review_id={review.review_id}/>
+        </div>
     </section>)
 }
