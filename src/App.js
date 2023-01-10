@@ -3,6 +3,7 @@ import './App.css';
 import { Header } from './Header';
 import { Nav } from './Nav';
 import { ReviewList } from './ReviewList';
+import { SingleReview } from './SingleReview';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<ReviewList />}></Route>
         <Route path="/reviews" element={<ReviewList />}></Route>
+        <Route path="/reviews/:review_id" element={<SingleReview />}></Route>
       </Routes>
     </div>
   );

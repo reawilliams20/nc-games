@@ -49,10 +49,14 @@
   text-decoration: none;
 }
 
-.reviewCard{
+.reviewCard, .singleReviewCard{
   padding-left: 100px;
   padding-right: 100px;
   padding-bottom: 20px;
   margin: 0 80px 0 80px;
   background-color: peachpuff;
+}
+
+.singleReviewCard{
+  font-size: smaller;
 }
