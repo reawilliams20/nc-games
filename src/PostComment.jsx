@@ -49,13 +49,11 @@ if (isAddedToCommentList){
         <section className="postComment">
             <h3 id="addCommentTitle"> Add Comment</h3>
             <form onSubmit={handleSubmit}>
-                <label htmlFor="username">username:</label><br></br>
-                <input type="text" name="username" id="username" required></input><br></br>
-                <label htmlFor="comment">comment:</label><br></br>
-                <textarea name="comment" id="comment" required></textarea><br></br>
+                <textarea name="comment" id="comment" placeholder="say your thoughts..." required></textarea><br></br>
                 <input type="submit" value="Post Comment"></input>
                 <input type="reset" value="Clear"></input>
             </form>
+            <br></br>
         </section>
     )
 }
