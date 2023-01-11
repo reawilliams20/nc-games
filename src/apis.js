@@ -2,8 +2,8 @@ import axios from "axios";
 
 const gamesApi = axios.create({baseURL: 'https://andrea-nc-games.onrender.com/api/'})
 
-export const getReviews = () => {
-    return gamesApi.get('/reviews').then((res) => {
+export const getReviews = (sortBy, orderBy) => {
+    return gamesApi.get('/reviews', {params: {sort_by: sortBy, order: orderBy}}).then((res) => {
         return res.data.reviews
     })
 }

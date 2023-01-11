@@ -86,3 +86,8 @@
 #down:hover {
   background-color: rgb(248, 94, 94)
 }
+
+.sortOrder{
+  float: right;
+  margin-right: 120px;
+}
