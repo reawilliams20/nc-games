@@ -26,9 +26,22 @@ export const getComments = (review_id) => {
     })
 }
 
-export const patchReview = (review_id, patchBody) => {
+export const patchReview = (review_id, vote) => {
+    const patchBody = {inc_votes: vote}
     return gamesApi.patch(`/reviews/${review_id}`, patchBody).then((res) => {
         return res.data.review
     })
 
+}
+
+export const getUsers = () => {
+    return gamesApi.get('/users').then((res) => {
+        return res.data.users
+    })
+}
+
+export const postComment = (review_id, newComment) => {
+    return gamesApi.post(`/reviews/${review_id}/comments`, newComment).then((res) => {
+        return res.data.comment
+    })
 }

@@ -74,15 +74,84 @@
 }
 
 .singleReviewCard button {
-  font-size: 18px;
+  font-size: 25px;
   padding: 10px;
   margin-left: 12px;
+  border: none;
 }
+
 
 #up:hover {
   background-color: rgb(93, 209, 145) ;
 }
 
 #down:hover {
-  background-color: rgb(248, 94, 94)
+  background-color: rgb(248, 94, 94);
+}
+
+.postComment input[type=text]:focus, .postComment input[type=textarea]:focus {
+  border: 3px solid #555;
+}
+
+#username {
+  border: 2px solid #ccc;
+  border-radius: 20px;
+  width: 20%;
+  padding: 5px 20px;
+  background-color: #f8f8f8;
+}
+
+#comment {
+  width: 40%;
+  height: 20%;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 20px;
+  background-color: #f8f8f8;
+  resize: none;
+}
+
+.postComment input[type=submit]{
+  background-color: rgb(111, 212, 235);
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  width: 150px
+}
+
+.postComment input[type=reset]{
+  background-color: rgb(133, 140, 140);
+  border: none;
+  color: white;
+  width: 150px;
+  height:48.4px;
+}
+
+.postComment input[type=reset]:hover{
+  background-color: rgb(79, 80, 80) ;
+}
+
+.postComment input[type=submit]:hover{
+  background-color: rgb(46, 169, 196);
+}
+
+#addCommentTitle{
+  margin: 0
+}
+
+#anotherComment {
+  background-color: rgb(111, 212, 235);
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  width: 150px
+}
+
+#anotherComment:hover{
+  background-color: rgb(46, 169, 196);
 }
