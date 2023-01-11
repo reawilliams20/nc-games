@@ -1,56 +1,39 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { useParams } from "react-router-dom"
-import { getUsers, postComment } from "./apis"
+import { postComment } from "./apis"
 
 
 export const PostComment = ({setListOfComments}) => {
     const [isAddedToCommentList, setIsAddedToCommentList] = useState(false)
-    const [users, setUsers] = useState([])
     const {review_id} = useParams()
 
-    useEffect(()=> {
-        getUsers().then((users) => {
-          const usernames = users.map((user) => {return user.username})
-            setUsers(usernames)
-        })
-    }, [])
-
 const handleSubmit = (e) => {
-    console.log(users)
     e.preventDefault()
     setIsAddedToCommentList(false)
+    const author = "cooljmessy"
     const newComment = {
-        username: e.target[0].value,
-        //backend error so need author to display optismitic rendering of username:
-        author: e.target[0].value,
+        author: author,
+        username: author,
         body: e.target[1].value,
         votes: 0,
         created_at: "Just now..."
     }
-
-    if (users.includes(newComment.author)){
-        //optimistic rendering:
+    //optimistic rendering:
+    setListOfComments((comments) => {
+        const newComments = [...comments]
+        newComments.push(newComment)
+        return newComments
+    })
+    postComment(review_id, newComment).catch((err) => {
+        alert("sorry something went wrong, please try again later.")
         setListOfComments((comments) => {
             const newComments = [...comments]
-            newComments.push(newComment)
-            return newComments
-        })
-        postComment(review_id, newComment).catch((err) => {
+                newComments.pop()
+                return newComments
+            })
+    })
 
-            alert("sorry something went wrong, please try again later.")
-            setListOfComments((comments) => {
-                const newComments = [...comments]
-                    newComments.pop()
-                    return newComments
-                })
-        })
-
-        if (postComment){setIsAddedToCommentList(true)}
-    }
-    else{
-        alert("invalid username")
-    }
-    
+    if (postComment){setIsAddedToCommentList(true)}
 }
 
 if (isAddedToCommentList){
@@ -63,16 +46,16 @@ if (isAddedToCommentList){
     )
 }
     return (
-        <div className="postComment">
+        <section className="postComment">
             <h3 id="addCommentTitle"> Add Comment</h3>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="username">username:</label><br></br>
                 <input type="text" name="username" id="username" required></input><br></br>
                 <label htmlFor="comment">comment:</label><br></br>
-                <textarea name="comment" id="comment"></textarea><br></br>
+                <textarea name="comment" id="comment" required></textarea><br></br>
                 <input type="submit" value="Post Comment"></input>
                 <input type="reset" value="Clear"></input>
             </form>
-        </div>
+        </section>
     )
 }

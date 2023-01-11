@@ -18,7 +18,7 @@ export const CommentList = ({review_id}) => {
     return isLoading ? (
         <p> Loading... </p>
     ) :
-    listOfComments.length === 0 ?  (<p> No comments yet </p>)
+    listOfComments.length === 0 ?  (<div><p> No comments yet </p><PostComment setListOfComments={setListOfComments}/></div>)
     :
     (
     <section>
