@@ -12,9 +12,9 @@ const handleSubmit = (e) => {
     setIsAddedToCommentList(false)
     const author = "cooljmessy"
     const newComment = {
-        author: author,
         username: author,
-        body: e.target[1].value,
+        author: author,
+        body: e.target[0].value,
         votes: 0,
         created_at: "Just now..."
     }
