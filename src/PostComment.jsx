@@ -16,16 +16,19 @@ export const PostComment = ({setListOfComments}) => {
     }, [])
 
 const handleSubmit = (e) => {
+    console.log(users)
     e.preventDefault()
     setIsAddedToCommentList(false)
     const newComment = {
-        username: e.target[0].value, 
+        username: e.target[0].value,
+        //backend error so need author to display optismitic rendering of username:
+        author: e.target[0].value,
         body: e.target[1].value,
         votes: 0,
         created_at: "Just now..."
     }
 
-    if (users.includes(newComment.username)){
+    if (users.includes(newComment.author)){
         //optimistic rendering:
         setListOfComments((comments) => {
             const newComments = [...comments]
