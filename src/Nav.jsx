@@ -19,7 +19,7 @@ export const Nav = () => {
                 {
                     categories.map((category)=>{
                         return (
-                        <Link to={`reviews?category=${category.slug}`} key={category.slug}>
+                        <Link to={`/reviews?category=${category.slug}`} key={category.slug}>
                         <li>{category.slug}</li>
                         </Link>
                         )
