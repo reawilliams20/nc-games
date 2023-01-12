@@ -7,8 +7,6 @@ export const SingleReview = () => {
     const [review, setReview] = useState({})
     const [isLoading, setIsLoading] = useState(true)
     const [voted, setVoted] = useState(false)
-    const increaseVote = {inc_votes: 1}
-    const decreaseVote = {inc_votes: -1}
     const {review_id} = useParams()
 
     useEffect(()=>{
@@ -24,7 +22,7 @@ export const SingleReview = () => {
             newReview.votes += vote;
             return newReview;
         })
-        patchReview(review_id, increaseVote).catch(() => {
+        patchReview(review_id, vote).catch(() => {
             alert("sorry something went wrong, please try again later.")
             setReview((review) => {
                     const newReview = {...review}
@@ -44,7 +42,7 @@ export const SingleReview = () => {
         <h2 id="reviewTitle" > {review.title} </h2>  
         <img src={review.review_img_url} alt={`Image of ${review.title}`} width="200" height="200" /> 
         <p id="reviewBody"> {review.review_body} </p>
-        <strong><p> Review By: {review.owner}</p></strong>
+        <strong><p id="reviewBody"> Review By: {review.owner}</p></strong>
         <small><p>Date: {review.created_at}</p></small>
         <p> Designer: {review.designer}</p>
         <p> Category: {review.category}</p>

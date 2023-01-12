@@ -25,7 +25,6 @@ export const Nav = () => {
                         )
                 })
             }
-                {/* <Link to={`/${username}/comments`}><li>My Comments</li></Link> */}
             </ul>
         </nav>
     )
