@@ -42,7 +42,7 @@ export const SingleReview = () => {
         <h2 id="reviewTitle" > {review.title} </h2>  
         <img src={review.review_img_url} alt={`Image of ${review.title}`} width="200" height="200" /> 
         <p id="reviewBody"> {review.review_body} </p>
-        <strong><p> Review By: {review.owner}</p></strong>
+        <strong><p id="reviewBody"> Review By: {review.owner}</p></strong>
         <small><p>Date: {review.created_at}</p></small>
         <p> Designer: {review.designer}</p>
         <p> Category: {review.category}</p>
