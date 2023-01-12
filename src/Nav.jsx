@@ -3,7 +3,6 @@ import { Link } from "react-router-dom"
 import { getCategories } from "./apis"
 
 export const Nav = () => {
-    const username = 'mallionaire'
     const [categories, setCategories] = useState([])
 
     useEffect(() =>{
