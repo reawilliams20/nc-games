@@ -2,11 +2,9 @@ import { useState } from "react"
 import { useParams } from "react-router-dom"
 import { postComment } from "./apis"
 
-
 export const PostComment = ({setListOfComments}) => {
     const [isAddedToCommentList, setIsAddedToCommentList] = useState(false)
     const {review_id} = useParams()
-
 const handleSubmit = (e) => {
     e.preventDefault()
     setIsAddedToCommentList(false)
@@ -32,10 +30,8 @@ const handleSubmit = (e) => {
                 return newComments
             })
     })
-
     if (postComment){setIsAddedToCommentList(true)}
 }
-
 if (isAddedToCommentList){
     return (
         <div>
@@ -57,3 +53,4 @@ if (isAddedToCommentList){
         </section>
     )
 }
+ 

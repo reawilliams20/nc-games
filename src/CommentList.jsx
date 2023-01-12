@@ -2,19 +2,15 @@ import { useEffect, useState } from "react"
 import { getComments } from "./apis"
 import { CommentCard } from "./CommentCard"
 import { PostComment } from "./PostComment"
-
 export const CommentList = ({review_id}) => {
-
     const [listOfComments, setListOfComments] = useState([])
     const [isLoading, setIsLoading] = useState(true)
-
     useEffect(() => {
         getComments(review_id).then((comments) => {
             setListOfComments(comments)
             setIsLoading(false)
         })
     }, [])
-
     return isLoading ? (
         <p> Loading... </p>
     ) :
