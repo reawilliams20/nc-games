@@ -3,7 +3,6 @@ import { Link } from "react-router-dom"
 import { getCategories } from "./apis"
 
 export const Nav = () => {
-    const username = 'mallionaire'
     const [categories, setCategories] = useState([])
 
     useEffect(() =>{
@@ -19,13 +18,12 @@ export const Nav = () => {
                 {
                     categories.map((category)=>{
                         return (
-                        <Link to={`reviews?category=${category.slug}`} key={category.slug}>
+                        <Link to={`/reviews?category=${category.slug}`} key={category.slug}>
                         <li>{category.slug}</li>
                         </Link>
                         )
                 })
             }
-                {/* <Link to={`/${username}/comments`}><li>My Comments</li></Link> */}
             </ul>
         </nav>
     )
