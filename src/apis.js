@@ -34,14 +34,18 @@ export const patchReview = (review_id, vote) => {
 
 }
 
-// export const getUsers = () => {
-//     return gamesApi.get('/users').then((res) => {
-//         return res.data.users
-//     })
-// }
+export const getUsers = () => {
+    return gamesApi.get('/users').then((res) => {
+        return res.data.users
+    })
+}
 
 export const postComment = (review_id, newComment) => {
     return gamesApi.post(`/reviews/${review_id}/comments`, newComment).then((res) => {
         return res.data.comment
     })
+}
+
+export const deleteComment = (comment_id) => {
+    return gamesApi.delete(`/comments/${comment_id}`)
 }

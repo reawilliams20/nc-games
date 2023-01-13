@@ -21,9 +21,9 @@ export const CommentList = ({review_id}) => {
         <div className="commentList">
             <h3> Comments: </h3>
             {
-                listOfComments.map(({body, votes, author, created_at, comment_id, review_id}) => {
+                listOfComments.map(({body, votes, author, created_at, comment_id}) => {
                     return (
-                            <CommentCard key={comment_id} body={body} author={author} created_at={created_at} review_id={review_id} votes={votes} />
+                            <CommentCard key={comment_id} body={body} author={author} created_at={created_at} votes={votes} comment_id={comment_id} listOfComments={listOfComments} setListOfComments={setListOfComments} setIsLoading={setIsLoading}/>
                     )
                 })
             }

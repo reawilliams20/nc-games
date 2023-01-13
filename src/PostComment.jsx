@@ -22,7 +22,10 @@ const handleSubmit = (e) => {
         newComments.push(newComment)
         return newComments
     })
-    postComment(review_id, newComment).catch((err) => {
+    postComment(review_id, newComment).then(() => {
+        setIsAddedToCommentList(true)
+    })
+    .catch((err) => {
         alert("sorry something went wrong, please try again later.")
         setListOfComments((comments) => {
             const newComments = [...comments]
@@ -30,7 +33,6 @@ const handleSubmit = (e) => {
                 return newComments
             })
     })
-    if (postComment){setIsAddedToCommentList(true)}
 }
 if (isAddedToCommentList){
     return (

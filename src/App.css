@@ -141,6 +141,21 @@
   background-color: rgb(46, 169, 196);
 }
 
+.deleteComment{
+  background-color: rgb(248, 94, 94);
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  width: 100px;
+  text-align: center;
+}
+
+.deleteComment:hover{
+  background-color: rgb(197, 32, 32)
+}
+
 @media (max-width: 600px) {
   .reviewCard, .singleReviewCard, .commentCard, .commentList, .postComment{
     width: 200px;
@@ -157,4 +172,17 @@
 .sortOrder{
   float: right;
   margin-right: 120px;
+}
+
+.header img{
+  height: 60px;
+  width: 60px;
+  border-radius: › 50%;
+  object-fit: cover;
+  margin: › 0 10px;
+}
+
+
+.header p{
+  margin: 0;
 }
