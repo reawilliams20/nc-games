@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { getReviews} from "./apis"
 import { ReviewCard } from "./ReviewCard"
 import { useNavigate, useSearchParams } from "react-router-dom"
+import { Error } from "./Error"
 
 export const ReviewList = () => {
     const [sortBy, setSortBy] = useState('created_at')
@@ -10,12 +11,13 @@ export const ReviewList = () => {
     const categoryQuery = searchParams.get('category')
     const [listOfReviews, setListOfReviews] = useState([])
     const [isLoading, setIsLoading] = useState(true)
+    const [isError, setIsError] = useState(false)
 
     const url = useNavigate()
 
     useEffect(() => {
         let urlString = '/reviews'
-
+        setIsError(false)
         if(sortBy) {
             urlString  += `?sort_by=${sortBy}`
             if(orderBy) urlString += `&&order=${orderBy}`
@@ -26,10 +28,13 @@ export const ReviewList = () => {
             setListOfReviews(reviews)
             url(urlString)
             setIsLoading(false)
+        }).catch(() => {
+            setIsError(true)
         })
     }, [categoryQuery, sortBy, orderBy])
     
-    return isLoading ? (
+    return isError ? (<Error />) :
+    isLoading ? (
         <p> Loading... </p>
     )
     : 
