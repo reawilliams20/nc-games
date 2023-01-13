@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 
-export const Error = ({errorStatus}) => {
-
+export const Error = () => {
+    
     return (
         <main className="Error">
             <h2 id="errorMessage">Page Not Found/ Broken Link</h2>

@@ -17,7 +17,7 @@ export const ReviewList = () => {
 
     useEffect(() => {
         let urlString = '/reviews'
-
+        setIsError(false)
         if(sortBy) {
             urlString  += `?sort_by=${sortBy}`
             if(orderBy) urlString += `&&order=${orderBy}`
