@@ -20,7 +20,9 @@ export const DeleteComment = ({author, comment_id, setListOfComments, listOfComm
     }
 
     if (isLoggedIn && user.username === author){
-        return (<button className="deleteComment" onClick={deleteCommentById}>Delete</button>)
+        if (comment_id){
+            return (<button className="deleteComment" onClick={deleteCommentById}>Delete</button>)
+        }
       }
 
 }
