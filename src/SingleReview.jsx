@@ -2,17 +2,21 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router"
 import { getReview, patchReview } from "./apis"
 import { CommentList } from "./CommentList"
+import { Error } from "./Error"
 
 export const SingleReview = () => {
     const [review, setReview] = useState({})
     const [isLoading, setIsLoading] = useState(true)
     const [voted, setVoted] = useState(false)
+    const [isError, setIsError] = useState(false)
     const {review_id} = useParams()
 
     useEffect(()=>{
         getReview(review_id).then((newReview)=>{
             setReview(newReview)
             setIsLoading(false)
+        }).catch(() => {
+            setIsError(true)
         })
     },[])
 
@@ -34,7 +38,9 @@ export const SingleReview = () => {
     }
 
 
-    return isLoading ? (
+    return isError ? (<Error />)
+     : 
+    isLoading ? (
         <p> Loading... </p>
     ) :
     (<section>

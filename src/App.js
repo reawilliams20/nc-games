@@ -5,7 +5,7 @@ import { Header } from './Header';
 import { Nav } from './Nav';
 import { ReviewList } from './ReviewList';
 import { SingleReview } from './SingleReview';
-import { UserContext } from './User';
+import { Error } from './Error';
 
 function App() {
   return (
@@ -16,6 +16,7 @@ function App() {
         <Route path="/" element={<ReviewList />}></Route>
         <Route path="/reviews" element={<ReviewList />}></Route>
         <Route path="/reviews/:review_id" element={<SingleReview />}></Route>
+        <Route path="/*" element={<Error />}></Route>
       </Routes>
     </div>
   );
