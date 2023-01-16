@@ -1,14 +1,17 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { useParams } from "react-router-dom"
 import { postComment } from "./apis"
+import { UserContext } from "./User"
 
 export const PostComment = ({setListOfComments}) => {
     const [isAddedToCommentList, setIsAddedToCommentList] = useState(false)
     const {review_id} = useParams()
+    const userValue = useContext(UserContext)
+    
 const handleSubmit = (e) => {
     e.preventDefault()
     setIsAddedToCommentList(false)
-    const author = "cooljmessy"
+    const author = userValue.user.username
     const newComment = {
         username: author,
         author: author,

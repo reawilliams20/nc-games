@@ -43,13 +43,13 @@ export const ReviewList = () => {
     <main>
         <h2> Reviews </h2>
         <section className="sortOrder">
-            Sort:
+            Sort: 
             <select value={sortBy} onChange={(e) => {setSortBy(e.target.value)}}>
                 <option value='created_at'>Date</option>
                 <option value='comment_count'>Comments</option>
                 <option value='votes'>Votes</option>
             </select>
-            Order:
+            Order: 
             <select value={orderBy} onChange={(e) => {setOrderBy(e.target.value)}}>
                 <option value='asc'>Asc</option>
                 <option value='desc'>Desc</option>

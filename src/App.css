@@ -157,7 +157,7 @@
 }
 
 @media (max-width: 600px) {
-  .reviewCard, .singleReviewCard, .commentCard, .commentList, .postComment{
+  .reviewCard, .singleReviewCard, .commentCard, .commentList, .postComment, .users, .header{
     width: 200px;
     margin: 0 auto;
   }
@@ -174,15 +174,51 @@
   margin-right: 120px;
 }
 
-.header img{
-  height: 60px;
-  width: 60px;
-  border-radius: › 50%;
-  object-fit: cover;
-  margin: › 0 10px;
+.sortOrder select{
+  margin-right:20px;
+  margin-left: 5px
 }
 
+.header, .header ul{
+  list-style-type: none;
+  text-align: center;
+  text-decoration: none;
 
-.header p{
-  margin: 0;
 }
+
+.link{
+  text-decoration: none;
+}
+
+.userList li{
+  margin-top: 40px;
+  display: inline-block;
+  list-style-type: none;
+}
+
+.headerList{
+  text-align: center;
+  text-indent: -2em;
+}
+
+.switch{
+  margin-top: 10px;
+  padding:10px;
+  background-color: rgb(111, 212, 235);
+  border: none
+}
+
+.switch:hover{
+  background-color: rgb(46, 169, 196);
+}
+
+.userCard:hover{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.nav li:hover{
+  font-size: 20px;
+  font-weight: bold;
+}
+
