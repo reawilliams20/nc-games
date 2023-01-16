@@ -1,5 +1,5 @@
 # House of Games App
-Link to app: https://rea-game-reviews.netlify.app/
+Link to app: https://andreas-house-of-games.netlify.app/
 
 ## Background
 This app is made using React.js for frontend develoment. It uses backend api to fetch and manipulate data.
