@@ -1,6 +1,5 @@
 # House of Games App
-
-## Link to app: https://rea-game-reviews.netlify.app/
+Link to app: https://rea-game-reviews.netlify.app/
 
 ## Background
 This app is made using React.js for frontend develoment. It uses backend api to fetch and manipulate data.
@@ -17,7 +16,7 @@ The following actions that can be made using the app are:
 - Post a comment (as logged in user)
 - Delete a comment (as logged in user)
 
-### `View list of reviews, Sort and Order`
+### `View list of reviews, sort and order`
 - Use the navbar to view a list of reviews specified by category
 - Use the drop down options (located directly under the navbar) to sort and order reviews
 
