@@ -3,7 +3,7 @@ Link to app: https://andreas-house-of-games.netlify.app/
 
 ## Background
 This app is made using React.js for frontend develoment. It uses backend api to fetch and manipulate data.
-- Backend repo to create api: https://github.com/reawilliams20/andrea-nc-games 
+- Backend repo to create api: https://github.com/reawilliams20/backend-nc-games 
 - Hosted api link: https://andrea-nc-games.onrender.com/api/ 
 
 ## How to use app
